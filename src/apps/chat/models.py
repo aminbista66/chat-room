@@ -7,6 +7,7 @@ import uuid
 
 class Conversation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=255, null=True, blank=True)
     participants = models.ManyToManyField(User, related_name="conversations")
     conversation_admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name="admin_conversations")
     last_conversation_id = models.UUIDField(null=True, blank=True)
@@ -26,7 +27,7 @@ class Conversation(models.Model):
         self.save()
 
     def __str__(self) -> str:
-        return f"Conversation {self.id}"
+        return f"Conversation {self.name}"
     
 class Message(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

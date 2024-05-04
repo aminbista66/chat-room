@@ -13,4 +13,4 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Conversation)
 class ConversationAdmin(admin.ModelAdmin):
-    list_display = ["id", "last_conversation_id", "created_at", "updated_at"]
+    list_display = ["id", "name", "last_conversation_id", "created_at", "updated_at"]
