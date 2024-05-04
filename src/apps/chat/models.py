@@ -27,7 +27,7 @@ class Conversation(models.Model):
         self.save()
 
     def __str__(self) -> str:
-        return f"Conversation {self.name}"
+        return f"{self.id}"
     
 class Message(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
